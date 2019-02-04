@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="DA">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>bmi beregning</title>
+</head>
+
+<body>
+    <script>
+        //OPGAVE//
+        //Du skal lave et program, som ud fra en persons højde og vægt udregner bmi’en
+
+        //Du skal ikke i dialog med brugeren i denne opgave - læg højde og vægt ind som variabler.
+
+        //Resultatet skal vises i console - vinduet efter denne form: Bmi’ en er 25
+
+
+        let vægt = prompt("Angiv vægt");
+        let højde = prompt("Angiv højde - HUSK angiv med punktum f.eks. 1.60");
+        let bmi = vægt / (højde * højde);
+
+
+        let resultat = `Din bmi er ${bmi}`;
+
+
+        //startes forfra. - det gør denne tag
+
+        confirm(resultat);
+
+        if (confirm) {
+            location.reload();
+        }
+
+        //console.log(resultat);
+    </script>
+</body>
+
+</html>
