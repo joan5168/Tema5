@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="DA">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>areal interaktiv</title>
+</head>
+
+<body>
+    <script>
+        //OPGAVE//
+        //Programmet skal bede brugeren angive
+        //en længde og en bredde
+        //Programmet skal udregne arealet, og
+        //give brugeren resultatet efter formen:
+        //Længde: 5 meter, bredde: 7 meter, areal: 35 meter
+        //Til sidst skal programmet spørge brugeren om der skal startes forfra.
+
+
+
+        let længde = prompt("Angiv længde");
+        let bredde = prompt("Angiv bredde");
+        let areal = længde * bredde;
+        let resultat = `Arealet er ${areal}. Har du brug for et nyt areal?`;
+
+        // Til sidst skal programmet spørge brugeren om der skal startes forfra. - det gør denne tag
+
+        confirm(resultat);
+
+        if (confirm) {
+            location.reload();
+        }
+
+        //        console.log(resultat);
+
+    </script>
+</body>
+
+</html>
+
+
+
+
+
+link til video https://www.youtube.com/watch?v=Fjiz3m_i4Gk&feature=youtu.be
