@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="DA">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>arel interaktiv</title>
+</head>
+
+<body>
+    <script>
+        //OPGAVE//
+        // I det forgående program, arealFunktioner.html:
+        //Test, hvad der sker, hvis brugeren angiver tekst
+        //i stedet for tal som længde eller bredde
+        //Test også, hvad der sker, hvis brugeren ikke
+        //angiver en værdi for længde eller bredde
+        //Prøv at ændre på programmet, så det tager
+        //højde for fejldata og giver brugeren en fejlmelding
+        //Commit og push til gitHub, når du er tilfreds med opgaven
+
+
+        let længde = prompt("Angiv længde");
+        let bredde = prompt("Angiv bredde");
+
+
+        //        let areal = længde * bredde;
+
+        function areal(l, b) {
+            return (l * b)
+        }
+
+
+        let resultat = `Arealet er ${areal(længde,bredde)}. Har du brug for et nyt areal?`;
+
+        // Til sidst skal programmet spørge brugeren om der skal startes forfra. - det gør denne tag
+
+        confirm(resultat);
+
+        if (confirm) {
+            location.reload();
+        }
+
+        //        console.log(resultat);
+
+    </script>
+</body>
+
+</html>
+
+
+
+Link til video - https://www.youtube.com/watch?v=YgAKGYx9uAA&feature=youtu.be

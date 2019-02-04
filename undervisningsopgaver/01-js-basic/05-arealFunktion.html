@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="DA">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>arel interaktiv</title>
+</head>
+
+<body>
+    <script>
+        //OPGAVE//
+        // Lav en funktion, areal, som med længde og
+        // bredde som parametre, kan udregne et areal,
+        // og returnere resultatet.
+
+        //Programmet skal:
+        //Bede brugeren om længde og bredde (prompt)
+        //Videregive resultatet til brugeren og spørge, om brugeren starte forfra (confirm)
+        //Starte forfra, hvis brugeren vil det
+
+        let længde = prompt("Angiv længde");
+        let bredde = prompt("Angiv bredde");
+
+
+        //        let areal = længde * bredde;
+
+        function areal(l, b) {
+            return (l * b)
+        }
+
+
+        let resultat = `Arealet er ${areal(længde,bredde)}. Har du brug for et nyt areal?`;
+
+        // Til sidst skal programmet spørge brugeren om der skal startes forfra. - det gør denne tag
+
+        confirm(resultat);
+
+        if (confirm) {
+            location.reload();
+        }
+
+        //        console.log(resultat);
+
+    </script>
+</body>
+
+</html>
+
+
+
+Forskellen på denne opgave er areal variablen er lavet om til en funktion. function areal(l, b)
+
+hvis der er et script som har forskellige funktioner, til at udregne forskellige arealer, så er det smart at bruge funktion.
+
+Link til video - https://www.youtube.com/watch?v=P5sg1tm9Mf8&feature=youtu.be-->
