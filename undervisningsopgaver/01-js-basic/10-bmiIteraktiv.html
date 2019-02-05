@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="DA">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>udregn bmi i interaktiv dialog med bruger</title>
+</head>
+
+<body>
+    <script>
+        //OPGAVE//
+        // Programmet skal bede brugeren angive sin højde og vægt.
+
+        //For danske brugere vil det være bedst at opgive højden i cm.
+
+        //Programmet skal så udregne bmi’en, og fortælle brugeren resultatet
+
+        //Til sidst skal programmet spørge om brugeren vil have besked om sin vægtklasse, og kun hvis brugeren siger ja, skal vægtklassen oplyses
+
+        //Hvis brugeren ikke opgiver tal for højde og vægt, skal programmet give en fejlmelding.
+
+
+        let vægt = prompt("Angiv vægt");
+        let højde = prompt("Angiv højde");
+        let bmi = vægt / (højde * højde);
+        let ja = prompt("\n Vil du vide din vægtklasse?");
+
+
+        let resultat = `Din bmi er ${bmi(vægt,højde)}`;
+
+
+        if (bmi <= 19) {
+            resultat = `Din bmi er ${bmi}. undervægtig`;
+        }
+
+
+        if (bmi >= 20 && bmi < 25) {
+            resultat = `Din bmi er ${bmi}. \n Vil du vide din vægtklasse?`;
+        }
+
+
+        //
+        //        if (bmi >= 25 && bmi < 30) {
+        //            //resultat = `Din bmi er ${bmi}. \n fedmeklasse: overvægtig`;
+        //            // hvis resulutatet skulle poppe op skulle bruge dette element
+        //            console.log(`Din bmi er ${bmi}.\n fedmeklasse: overvægtig`)
+        //
+        //        }
+        //
+        //
+        //        if (bmi >= 30 && bmi < 35) {
+        //            //resultat = `Din bmi er ${bmi}. \n fedmeklasse: fed`;
+        //            // hvis resulutatet skulle poppe op skulle bruge dette element
+        //            console.log(`Din bmi er ${bmi}.\n fedmeklasse: fed`)
+        //
+        //        }
+        //
+        //
+        //
+        //        if (bmi >= 35 && bmi < 40) {
+        //            //resultat = `Din bmi er ${bmi}. \n fedmeklasse: svær fedme`;
+        //            // hvis resulutatet skulle poppe op skulle bruge dette element
+        //            console.log(`Din bmi er ${bmi}.\n fedmeklasse: svær fedme`)
+        //
+        //        }
+        //
+        //
+        //        if (bmi >= 40) {
+        //            //resultat = `Din bmi er ${bmi}. \n fedmeklasse: ekstremt fed`;
+        //            // hvis resulutatet skulle poppe op skulle bruge dette element
+        //            console.log(`Din bmi er ${bmi}.\n fedmeklasse: ekstremt fed`)
+        //
+        //        }
+
+        //startes forfra. - det gør denne tag
+
+        //        confirm(resultat);
+        //
+        // if (confirm) {
+        // location.reload();
+        // }
+        //
+        // console.log(resultat);
+    </script>
+</body>
+
+</html>
+
+<!--Jeg tror der skal laves funktioner til hver klasse, men det ved jeg ikke hvordan skal gøres.-->
+
+
+<!--Jeg kan ikke løse denne opgave-->
