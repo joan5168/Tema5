@@ -4,13 +4,12 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>tekstindhold i elementer</title>
+    <title>billedindhold i elementer</title>
     <style>
         .firkant {
             height: 100px;
             width: 100px;
             line-height: 100px;
-            border-radius: 50%;
             text-align: center;
             background-color: green;
 
@@ -34,6 +33,10 @@ I body skal der være en grøn firkant og en rød cirkel - brug et style-tag i h
 De to figurer skal være tomme (teksten skal ind med js i punkt 2.)
 Læg teksten “Grøn firkant” i firkanten og “Rød cirkel”
 i cirklen vha javascript
+
+Sætter en frø ind i firkanten
+En gris ind i cirklen.
+
 -->
 
 <body>
@@ -42,14 +45,26 @@ i cirklen vha javascript
 
 
     <script>
-        // tekst i js, Læg teksten “Grøn firkant” i firkanten og “Rød cirkel”
-        // textContent = bruges til text
-        // innerhtml = bruges til billeder
-        document.querySelector(".firkant").textContent = "Grøn Firkant";
-        document.querySelector(".cirkel").textContent = "Rød Cirkel";
+        //billede af en frø til firkanten
+
+        let firkantURL = `http://helf-kea.dk/test/frog.png`;
+        let cirkelURL = `http://helf-kea.dk/test/gris.png`;
+
+
+
+        // textContent og innerHTML = gør det samme
+        document.querySelector(
+            ".firkant").innerHTML = `<img src = ${firkantURL} alt ="grøn frø">`;
+
+
+        document.querySelector(
+            ".cirkel").innerHTML = `<img src = ${cirkelURL} alt="lyserød gris"> `;
     </script>
 
 
 </body>
 
 </html>
+
+
+<!--link til video https://www.youtube.com/watch?v=hGmSTq2p0MA&feature=youtu.be-->

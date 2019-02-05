@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="DA">
+
+<!--//Opgave-->
+<!--
+Opretter et nyt img-element.
+
+Sætter det nye elements billedfil til
+“http://helf-kea.dk/test/fox.png”
+
+Sætter det nye element ind i cirklen.
+(sæt højde og bredde op til det 200px)
+
+-->
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tilføj nyt element i element</title>
+    <style>
+        .firkant {
+            height: 200px;
+            width: 200px;
+            line-height: 200px;
+            text-align: center;
+            background-color: green;
+
+        }
+
+        .cirkel {
+            height: 200px;
+            width: 200px;
+            line-height: 200px;
+            border-radius: 50%;
+            text-align: center;
+            background-color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="firkant"></div>
+    <div class="cirkel"></div>
+
+
+    <script>
+        //billede af en frø til firkanten
+        let firkantURL = `http://helf-kea.dk/test/frog.png`;
+        let cirkelURL = `http://helf-kea.dk/test/gris.png`;
+        let foxURL = `http://helf-kea.dk/test/fox.png`;
+
+
+        // textContent og innerHTML = gør det samme
+        document.querySelector(
+            ".firkant").innerHTML = `<img src = ${firkantURL} alt ="grøn frø">`;
+
+        document.querySelector(
+            ".cirkel").innerHTML = `<img src = ${cirkelURL} alt="lyserød gris">`;
+
+        document.querySelector(
+            ".cirkel").innerHTML += `<img src = ${foxURL} alt="rød ræv">`;
+        //innerhTML + = plus betyder at det ikke overskrider det anden .cirkel tag
+    </script>
+
+
+</body>
+
+</html>
+
+
+<!--Link til video https://www.youtube.com/watch?v=1-0eWi1gYsM&feature=youtu.be-->
