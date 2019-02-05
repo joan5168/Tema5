@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>testLoad i elementer</title>
+    <title>klikhop</title>
     <style>
         .firkant {
             height: 100px;
@@ -29,7 +29,11 @@
 <!--//Opgave-->
 <!--
 Arbejd videre på indholdet:
-Du skal sørge for at scriptet tester, om DOM’en er loadet, inden det lægger billederne ind.
+
+Når der klikkes på den grønne firkant, skal de to dyr bytte plads
+Når der klikkes på den røde cirkel, skal
+den grønne firkant ikke længere kunne
+bruges til ombytninger.
 -->
 
 <body>
@@ -48,11 +52,26 @@ Du skal sørge for at scriptet tester, om DOM’en er loadet, inden det lægger 
 
         function start() {
             console.log("start");
-            document.querySelector(
-                ".firkant").innerHTML = `<img src = ${firkantURL} alt ="grøn frø">`;
-            document.querySelector(
-                ".cirkel").innerHTML = `<img src = ${cirkelURL} alt="lyserød gris"> `;
+            let firkant = document.querySelector(".firkant");
+            let cirkel = document.querySelector(".cirkel");
 
+
+            firkant.innerHTML = `<img src = ${firkantURL} alt ="grøn frø">`;
+            cirkel.innerHTML = `<img src = ${cirkelURL} alt="lyserød gris"> `;
+
+            firkant.addEventListener("click", flyt);
+            cirkel.addEventListener("click", stop);
+
+            function flyt() {
+                let firkantStart = firkant.innerHTML;
+                firkant.innerHTML = cirkel.innerHTML;
+                cirkel.innerHTML = firkantStart;
+            }
+
+            function stop() {
+                firkant.removeEventListener("click", flyt);
+
+            }
         }
     </script>
 </body>
@@ -60,5 +79,4 @@ Du skal sørge for at scriptet tester, om DOM’en er loadet, inden det lægger 
 </html>
 
 
-
-<!--Link til video https://www.youtube.com/watch?v=1-0eWi1gYsM&feature=youtu.be-->
+<!--Link til video https://www.youtube.com/watch?v=dEWWvxFz_hg&feature=youtu.be-->
