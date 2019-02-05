@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>array</title>
+    <!--
+Opgave
+
+
+Lav et script:
+Erklær et array “playliste” med navne
+på dine 10 yndlingstracks.
+Loop arrayet igennem og få hvert tracknavn
+til at stå i div-boxen “display” , på hver sin linie
+
+-->
+    <style>
+        body {
+            color: burlywood;
+        }
+
+        #display {
+            width: 20vw;
+            height: 20vw;
+            border: 1px solid silver;
+            margin: 7vw;
+            padding: 1vw;
+        }
+
+        /*********************/
+    </style>
+
+</head>
+
+<body>
+    <div id="display"></div>
+
+    <script>
+        let playliste = ["Sound of Music", "Dansing in the Rain ", "What a wonderful word"];
+        playliste.forEach(sang => {
+            document.querySelector("#display").innerHTML += `${sang} <br>`;
+        })
+    </script>
+</body>
+
+</html>
+
+
+<!--link til video https://www.youtube.com/watchv=tsnyLH5kv9k&feature=youtu.be&t=7-->
