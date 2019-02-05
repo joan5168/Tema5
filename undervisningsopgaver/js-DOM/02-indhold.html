@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="DA">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tekstindhold i elementer</title>
+    <style>
+        .firkant {
+            height: 100px;
+            width: 100px;
+            line-height: 100px;
+            border-radius: 50%;
+            text-align: center;
+            background-color: green;
+
+        }
+
+        .cirkel {
+            height: 100px;
+            width: 100px;
+            line-height: 100px;
+            border-radius: 50%;
+            text-align: center;
+            background-color: red;
+        }
+
+    </style>
+</head>
+
+<!--//Opgave-->
+<!--
+I body skal der være en grøn firkant og en rød cirkel - brug et style-tag i head i stedet for et eksternt stylesheet - du må gerne.
+
+De to figurer skal være tomme (teksten skal ind med js i punkt 2.)
+Læg teksten “Grøn firkant” i firkanten og “Rød cirkel”
+i cirklen vha javascript
+-->
+
+<body>
+    <div class="firkant"></div>
+    <div class="cirkel"></div>
+
+
+    <script>
+        // tekst i js, Læg teksten “Grøn firkant” i firkanten og “Rød cirkel”
+        // textContent og innerHTML = gør det samme
+        document.querySelector(".firkant").textContent = "Grøn Firkant";
+        document.querySelector(".cirkel").innerHTML = "Rød Cirkel";
+
+    </script>
+
+
+</body>
+
+</html>
