@@ -29,7 +29,7 @@ under teksten.
 
 <body>
 
-    <div>
+    <div id="dyr">
     </div>
     <script>
         document.addEventListener("DOMContentLoaded", start);
@@ -50,10 +50,13 @@ under teksten.
 
             // øvelse 2
 
+            // tekst vises
+            document.querySelector("div").innerHTML = `Dyr:${dyr.navn}, type:${dyr.type}, levested:${dyr.levested}<br>`;
 
-            document.querySelector("div").innerHTML = `<img src = ${dyr.billede} alt="lyserød gris"> `;
 
-            document.querySelector("div").innerHTML += `Dyr:${dyr.navn}, type:${dyr.type}, levested:${dyr.levested}`;
+            //billede af gris vises
+            document.querySelector("div").innerHTML += `<img src = ${dyr.billede} alt="lyserød gris">`;
+
 
 
         }
@@ -63,3 +66,8 @@ under teksten.
 
 
 </html>
+
+<!--
+
+Link til slide https://docs.google.com/presentation/d/1KfKzhJRS3JpHvzQGtHRfIUPB3AMd8dyMUC-d9V0TfGw/edit#slide=id.g3ff3782078_0_581
+-->

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="DA">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Opret et dyreobjekt</title>
+</head>
+
+<!--
+Opgave
+
+Udbyg det tomme div tag, så det indeholder:
+	En h2-overskrift til dyrets navn
+	Et tomt img-tag til billedet
+	Et p-tag til typen
+	Et p-tag til levestedet
+
+
+Lav om på scriptet, så det indsætter de forskellige
+værdier i de rigtige tags
+-->
+
+<body>
+
+    <div id="dyr">
+        <h2>Gris</h2>
+        <img src="http://helf-kea.dk/test/gris.png">
+        <p class="type">Type: </p>
+        <p class="levested">Levested: </p>
+
+
+    </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", start);
+
+        function start() {
+            let dyr = {
+                "navn": "gris",
+                "type": "pattedyr",
+                "billede": "http://helf-kea.dk/test/gris.png",
+                "levested": "svinefarme"
+            };
+            //
+            //            console.log(dyr);
+            //            console.log(`Dyr:${dyr.navn}, type:${dyr.type}, levested:${dyr.levested}`);
+            //
+            //            // øvelse 2
+            //
+            //            //billede af gris vises
+            //            document.querySelector("div").innerHTML = `<img src = ${dyr.billede} alt="lyserød gris"> `;
+            //
+            //            // tekst vises
+            //            document.querySelector("div").innerHTML += `Dyr:${dyr.navn}, type:${dyr.type}, levested:${dyr.levested}`;
+
+
+            //øvelse 3
+
+            let destination = document.querySelector("#dyr");
+
+            destination.querySelector("h2").textContent = dyr.navn;
+            destination.querySelector("img").src = dyr.billede;
+            destination.querySelector(".type").textContent += dyr.type;
+            destination.querySelector(".levested").textContent += dyr.levested;
+        }
+
+    </script>
+
+</body>
+
+
+</html>
+
+<!--
+
+Link til slide https://docs.google.com/presentation/d/1KfKzhJRS3JpHvzQGtHRfIUPB3AMd8dyMUC-d9V0TfGw/edit#slide=id.g3ff3782078_0_581
+-->
