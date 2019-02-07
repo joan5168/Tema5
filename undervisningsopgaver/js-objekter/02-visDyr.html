@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="DA">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Opret et dyreobjekt</title>
+</head>
+
+<!--
+Opgave
+
+Lav et tomt div-tag i DOM’en, som du kan bruge til at vise informationerne om dyret.
+
+
+I scriptet skal du huske at lave en eventlistener på, om DOM-indholdet er loaded (div-tagget skal være læst ind).
+
+
+Dét, du i dyr-a-filen udskrev
+i console.log, skal du nu udskrive i
+div-tagget.
+
+
+Vis også billedet i div-tagget. Placer det
+under teksten.
+
+-->
+
+
+<body>
+
+    <div>
+    </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", start);
+
+
+        function start() {
+
+
+            let dyr = {
+                "navn": "gris",
+                "type": "pattedyr",
+                "billede": "http://helf-kea.dk/test/gris.png",
+                "levested": "svinefarme"
+            };
+
+            console.log(dyr);
+            console.log(`Dyr:${dyr.navn}, type:${dyr.type}, levested:${dyr.levested}`);
+
+            // øvelse 2
+
+
+            document.querySelector("div").innerHTML = `<img src = ${dyr.billede} alt="lyserød gris"> `;
+
+            document.querySelector("div").innerHTML += `Dyr:${dyr.navn}, type:${dyr.type}, levested:${dyr.levested}`;
+
+
+        }
+    </script>
+
+</body>
+
+
+</html>
