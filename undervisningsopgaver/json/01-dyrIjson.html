@@ -8,19 +8,6 @@
 </head>
 
 <style>
-    /*
-    #liste {
-        border-style: solid;
-        border-width: 1px;
-        margin: 2px;
-
-
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr 1fr;
-
-    }
-*/
-
     .dyr {
         border: 1px solid black;
         margin: 5px;
@@ -32,18 +19,7 @@
         grid-template-columns: 1fr 1fr 1fr 1fr;
 
     }
-
 </style>
-
-<!--
-Opgave
-
-Lav ændringer:
-Alle dyr skal vises i #liste, men denne gang skal de hver vises i et lidt mere komplekst element, som det du brugte til et enkelt dyr i øvelse 3 (03-visIelement.html)
-
-Brug lidt styling - fx som her: en border omkring dyret ;)
-
--->
 
 <body>
 
@@ -59,6 +35,14 @@ Brug lidt styling - fx som her: en border omkring dyret ;)
         function start() {
             let dest = document.querySelector("#liste");
 
+
+            async function getJson() {
+                let jsonData = await fetch("dyr.json");
+                alleDyr = await jsonData.json();
+                visDyr();
+            }
+
+
             function visDyr() {
                 alleDyr.forEach((dyr) => {
                     dest.innerHTML += `
@@ -70,12 +54,16 @@ Brug lidt styling - fx som her: en border omkring dyret ;)
                         </div>`;
                 })
             }
-            visDyr();
-        }
+            getJson();
 
+        }
     </script>
 
 </body>
 
 
 </html>
+
+<!--
+link til slide
+https://docs.google.com/presentation/d/1bSDsbdVL9qpv2T46V7_MC3edIP4MDkZX1Poac4Nz4lE/edit#slide=id.g4e5d2d50e8_0_152-->
