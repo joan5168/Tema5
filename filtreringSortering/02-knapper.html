@@ -35,9 +35,26 @@
         margin-left: 50px;
         color: #916e6e;
     }
+
+
+    .menu {
+        text-align: center;
+        background-color: #e8c7c7;
+    }
+
+    .valgt {
+        background-color: #cc5151;
+        border-radius: 4px;
+    }
 </style>
 
 <body>
+    <div class="menu">
+        <button class="filter" data-hold="alle">Alle</button>
+        <button class="filter" data-hold="alle">Hold A</button>
+        <button class="filter" class="valgt" data-hold="alle">Hold B</button>
+    </div>
+
     <div id="liste"></div>
     <script>
         let personListe = [];
@@ -53,7 +70,6 @@
                 personListe = await jsonData.json();
                 visPerson();
             }
-
 
 
             function visPerson() {
@@ -79,7 +95,13 @@
     </script>
 </body>
 
-</html><!--
+</html>
+
+
+
+
+
+<!--
 
 
 link til slide https://docs.google.com/presentation/d/1UzsFHJ8We-BE7GxTSwN-uLuj-revTLv2K5_L_mPRdrM/edit#slide=id.g4dfcad5312_3_15-->
