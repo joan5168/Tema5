@@ -36,12 +36,30 @@
         color: #916e6e;
     }
 
+
+    .menu {
+        text-align: center;
+        background-color: #e8c7c7;
+    }
+
+    .b {
+        background-color: #cc5151;
+        border-radius: 4px;
+    }
 </style>
 
 <body>
+    <div class="menu">
+        <button class="filter" data-hold="alle">Alle</button>
+        <button class="filter" data-hold="alle">Hold A</button>
+        <button class="b" data-hold="alle">Hold B</button>
+    </div>
+
     <div id="liste"></div>
     <script>
         let personListe = [];
+        let filter = "b";
+
         document.addEventListener("DOMContentLoaded", start);
 
         function start() {
@@ -54,9 +72,11 @@
             }
 
 
+
             function visPerson() {
                 personListe.forEach((person) => {
-                    dest.innerHTML += `
+                    if (person.hold == filter) {
+                        dest.innerHTML += `
                         <div class="person">
                             <h2>${person.navn}</h2>
                             <img src="${person.billede}" alt="${person.navn}">
@@ -66,23 +86,14 @@
                             <p>email: ${person.email}</p>
                             <p>hold: ${person.hold}</p>
                         </div>`;
+                    }
                 })
 
 
             }
             getJson();
         }
-
     </script>
 </body>
 
 </html>
-
-
-
-
-<!--
-feedback
-"Nydeligt - men husk at læse opgaven: der bedes om en overskrift med navn, et billede og et klikbart link til github-konto.
-
-Stil gerne template-literale op, så det indrykkes som html-tekst - så kan man nemmere overskrue det." -->
