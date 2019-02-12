@@ -59,19 +59,31 @@ Lav en eventListener på knappen, som sørger for at lukke popupvinduet igen.
     h1 {
         text-align: center;
     }
+
+
+    #indhold {
+        box-sizing: border-box;
+        background-color: lightgray;
+        width: 90vw;
+        height: 90vh;
+        margin: auto;
+    }
+
+    #luk {
+        box-sizing: border-box;
+        text-align: right;
+        padding-right: 1em;
+    }
+
+    #luk button {
+        font-size: 2em;
+    }
+
 </style>
 
-
 <body>
-
-
-    <section>
-        <div id="liste"></div>
-    </section>
-
-
     <header>
-        <h1></h1>
+        <h1>Alle på MMD</h1>
         <nav>
             <div class="menu">
                 <button class="filter" data-hold="alle">Alle</button>
@@ -83,6 +95,11 @@ Lav en eventListener på knappen, som sørger for at lukke popupvinduet igen.
 
         </nav>
     </header>
+
+    <section>
+        <div id="liste"></div>
+    </section>
+
     <script>
         let personListe = [];
         let filter = "alle";
@@ -91,7 +108,6 @@ Lav en eventListener på knappen, som sørger for at lukke popupvinduet igen.
 
         function start() {
             let dest = document.querySelector("#liste");
-            let temp = document.querySelector("template");
             async function getJson() {
                 let jsonData = await fetch("https://mandalskeawebspace.dk/claude_php/clean_up_spreadsheet.php?id=1OLlD_GRoz71piHvnW306omRAyHS7vtLOILQt-K0YF_c");
                 personListe = await jsonData.json();
@@ -108,9 +124,9 @@ Lav en eventListener på knappen, som sørger for at lukke popupvinduet igen.
             function visPerson() {
                 dest.innerHTML = "";
                 personListe.forEach(person => {
-                            if (filter == "alle" || filter == person.hold) {
+                    if (filter == "alle" || filter == person.hold) {
 
-                                let template = `
+                        let template = `
                                     <div class="person">
                                         <h2>${person.navn}</h2>
                                         <img src="${person.billede}" alt="${person.navn}">
@@ -121,31 +137,33 @@ Lav en eventListener på knappen, som sørger for at lukke popupvinduet igen.
                                         <p>hold: ${person.hold}</p>
                                         </div>
                                     `;
-                                dest.insertAdjacentHTML("beforeend", template);
-                                dest.lastElementChild.addEventListener("click", () => {
-                                    location.href = "06-single.html?github=" + person.github;
+                        dest.insertAdjacentHTML("beforeend", template);
+                        dest.lastElementChild.addEventListener("click", () => {
+                            location.href = "07-singleView.html?github=" + person.github;
+                        });
 
 
-                                });
-                            } //function visPerson er slut
+                    }
+                })
+            } //function visPerson er slut
 
-                            document.querySelectorAll(".filter").forEach(elm => {
-                                elm.addEventListener("click", filtrering);
+            document.querySelectorAll(".filter").forEach(elm => {
+                elm.addEventListener("click", filtrering);
 
-                            })
+            })
 
-                            function filtrering() {
-                                filter = this.getAttribute("data-hold");
-                                document.querySelector("h1").textContent = this.textContent;
-                                document.querySelectorAll(".filter").forEach(elm => {
-                                    elm.classList.remove("valgt");
-                                })
-                                this.classList.add("valgt");
-                                visPerson();
-                            }
+            function filtrering() {
+                filter = this.getAttribute("data-hold");
+                document.querySelector("h1").textContent = this.textContent;
+                document.querySelectorAll(".filter").forEach(elm => {
+                    elm.classList.remove("valgt");
+                })
+                this.classList.add("valgt");
+                visPerson();
+            }
+            getJson();
+        }
 
-                            getJson();
-                        }
     </script>
 </body>
 

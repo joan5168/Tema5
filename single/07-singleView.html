@@ -12,33 +12,6 @@
         padding: 0;
     }
 
-    img {
-        max-width: 150px;
-        margin-left: 50px;
-    }
-
-    .person {
-        grid-template-columns: 1fr 1fr 1fr 1fr;
-        border: 1px solid #e8c7c7;
-        margin: 6px;
-        padding: 5px;
-    }
-
-    h2 {
-        text-align: center;
-        color: #be8686;
-    }
-
-    p {
-        margin-left: 50px;
-        color: #916e6e;
-    }
-
-
-    h1 {
-        text-align: center;
-    }
-
     #singleview {
         width: 100vw;
         height: 100vh;
@@ -53,49 +26,40 @@
         margin: auto;
     }
 
-    #luk {
+    #tilbage {
         box-sizing: border-box;
         text-align: right;
         padding-right: 1em;
     }
 
-    #luk button {
+    #tilbage button {
         font-size: 2em;
     }
-
 </style>
 
 
 <body>
     <section>
         <div id="singleview">
-            <div id="luk"><button>X</button></div>
+            <div id="tilbage"><button>-></button></div>
             <div id="indhold"></div>
         </div>
     </section>
-
-
-    <header>
-        <h1></h1>
-
-    </header>
 
     <script>
         let urlParams = new URLSearchParams(window.location.search);
         let github = urlParams.get("github");
         let person;
         let personListe = [];
-        let filter = "alle";
         document.addEventListener("DOMContentLoaded", start);
 
         function start() {
-            let dest = document.querySelector("#liste");
             async function getJson() {
                 let jsonData = await fetch("https://mandalskeawebspace.dk/claude_php/clean_up_spreadsheet.php?id=1OLlD_GRoz71piHvnW306omRAyHS7vtLOILQt-K0YF_c");
                 personListe = forEach(obj => {
-                    if (obj.github == github {
-                            person = obj;
-                        })
+                    if (obj.github == github) {
+                        person = obj;
+                    }
                 })
                 åben();
             }
@@ -118,7 +82,6 @@
             })
             getJson();
         }
-
     </script>
 </body>
 
