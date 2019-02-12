@@ -4,8 +4,17 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>fremhævknap</title>
+    <title>Navn sorteret</title>
 </head>
+
+<!--
+Opgave
+
+Lav om på scriptet, så personerne vises i alfabetisk rækkefølge efter navn
+
+Lav igen om, så personerne vises i omvendt alfabetisk rækkefølge.-->
+
+
 <style>
     #liste {
         display: grid;
@@ -69,10 +78,16 @@
 
         function start() {
             let dest = document.querySelector("#liste");
-
+            let temp = document.querySelector("template");
             async function getJson() {
                 let jsonData = await fetch("https://mandalskeawebspace.dk/claude_php/clean_up_spreadsheet.php?id=1OLlD_GRoz71piHvnW306omRAyHS7vtLOILQt-K0YF_c");
                 personListe = await jsonData.json();
+
+                //sortere efter navn
+                personListe.sort((a, b) => {
+                    return a.navn.localeCompare(b.navn);
+                })
+
                 visPerson();
             }
 

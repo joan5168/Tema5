@@ -4,14 +4,17 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Overskrift</title>
+    <title>Semantiske tag</title>
+</head>
+
 <!--
 Opgave
 
-Få overskrifter på filtreringerne:-->
+Gå dokumentet body igennem, og indfør semantiske tags.
 
+Tjek i inspect-vinduet, at det fungerer, også når json-objekterne er blevet indlæst i DOM’en.
+-->
 
-</head>
 <style>
     #liste {
         display: grid;
@@ -56,17 +59,31 @@ Få overskrifter på filtreringerne:-->
     h1 {
         text-align: center;
     }
+
 </style>
 
-<body>
-    <h1></h1>
-    <div class="menu">
-        <button class="filter valgt" data-hold="alle">Alle</button>
-        <button class="filter" data-hold="a">Hold A</button>
-        <button class="filter" data-hold="b">Hold B</button>
-    </div>
 
-    <div id="liste"></div>
+
+
+<body>
+
+    <header>
+        <h1></h1>
+        <nav>
+            <div class="menu">
+                <button class="filter" data-hold="alle">Alle</button>
+                <button class="filter" data-hold="a">Hold A</button>
+                <button class="filter" data-hold="b">Hold B</button>
+                <button class="filter" data-hold="b">Mænd</button>
+                <button class="filter" data-hold="b">Kvinder</button>
+            </div>
+
+        </nav>
+    </header>
+
+    <section>
+        <div id="liste"></div>
+    </section>
     <script>
         let personListe = [];
         let filter = "alle";
@@ -75,10 +92,16 @@ Få overskrifter på filtreringerne:-->
 
         function start() {
             let dest = document.querySelector("#liste");
-
+            let temp = document.querySelector("template");
             async function getJson() {
                 let jsonData = await fetch("https://mandalskeawebspace.dk/claude_php/clean_up_spreadsheet.php?id=1OLlD_GRoz71piHvnW306omRAyHS7vtLOILQt-K0YF_c");
                 personListe = await jsonData.json();
+
+                //sortere efter navn
+                personListe.sort((a, b) => {
+                    return a.navn.localeCompare(b.navn);
+                })
+
                 visPerson();
             }
 
@@ -109,11 +132,16 @@ Få overskrifter på filtreringerne:-->
             function filtrering() {
                 filter = this.getAttribute("data-hold");
                 document.querySelector("h1").textContent = this.textContent;
+                document.querySelectorAll(".filter").forEach(elm => {
+                    elm.classList.remove("valgt");
+                })
+                this.classList.add("valgt");
                 visPerson();
             }
 
             getJson();
         }
+
     </script>
 </body>
 

@@ -4,14 +4,16 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Overskrift</title>
+    <title>fremhævknap</title>
+</head>
+
 <!--
 Opgave
 
-Få overskrifter på filtreringerne:-->
+Nu skal den valgte kategori også tydeliggøres med styling af den aktuelle knap
+-->
 
 
-</head>
 <style>
     #liste {
         display: grid;
@@ -61,7 +63,7 @@ Få overskrifter på filtreringerne:-->
 <body>
     <h1></h1>
     <div class="menu">
-        <button class="filter valgt" data-hold="alle">Alle</button>
+        <button class="filter" data-hold="alle">Alle</button>
         <button class="filter" data-hold="a">Hold A</button>
         <button class="filter" data-hold="b">Hold B</button>
     </div>
@@ -109,6 +111,10 @@ Få overskrifter på filtreringerne:-->
             function filtrering() {
                 filter = this.getAttribute("data-hold");
                 document.querySelector("h1").textContent = this.textContent;
+                document.querySelectorAll(".filter").forEach(elm => {
+                    elm.classList.remove("valgt");
+                })
+                this.classList.add("valgt");
                 visPerson();
             }
 

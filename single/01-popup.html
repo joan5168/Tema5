@@ -4,8 +4,22 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aldersorteret</title>
+    <title>Semantiske tag</title>
 </head>
+
+<!--
+Opgave
+
+Læg et popup-vindue (et div-tag) øverst (eller nederst) i dokumentet.
+
+Style det, så det fylder hele vinduet og lægger sig ovenpå det eksisterende indhold.
+
+Giv også popup-vinduet en baggrundsfarve, så det er til at få øje på.
+
+Test om det fungerer.
+
+-->
+
 <style>
     #liste {
         display: grid;
@@ -50,17 +64,40 @@
     h1 {
         text-align: center;
     }
+
+    #popup {
+        width: 100vw;
+        height: 100vh;
+        position: fixed;
+        background-color: red;
+    }
+
 </style>
 
-<body>
-    <h1></h1>
-    <div class="menu">
-        <button class="filter" data-hold="alle">Alle</button>
-        <button class="filter" data-hold="a">Hold A</button>
-        <button class="filter" data-hold="b">Hold B</button>
-    </div>
 
-    <div id="liste"></div>
+
+
+
+
+<body>
+    <div id="popup"></div>
+    <section>
+        <div id="liste"></div>
+    </section>
+
+    <header>
+        <h1></h1>
+        <nav>
+            <div class="menu">
+                <button class="filter" data-hold="alle">Alle</button>
+                <button class="filter" data-hold="a">Hold A</button>
+                <button class="filter" data-hold="b">Hold B</button>
+                <button class="filter" data-hold="b">Mænd</button>
+                <button class="filter" data-hold="b">Kvinder</button>
+            </div>
+
+        </nav>
+    </header>
     <script>
         let personListe = [];
         let filter = "alle";
@@ -73,9 +110,12 @@
             async function getJson() {
                 let jsonData = await fetch("https://mandalskeawebspace.dk/claude_php/clean_up_spreadsheet.php?id=1OLlD_GRoz71piHvnW306omRAyHS7vtLOILQt-K0YF_c");
                 personListe = await jsonData.json();
+
+                //sortere efter navn
                 personListe.sort((a, b) => {
-                    return a.alder - b.alder
+                    return a.navn.localeCompare(b.navn);
                 })
+
                 visPerson();
             }
 
@@ -115,6 +155,7 @@
 
             getJson();
         }
+
     </script>
 </body>
 
@@ -127,4 +168,4 @@
 <!--
 
 
-link til slide https://docs.google.com/presentation/d/1UzsFHJ8We-BE7GxTSwN-uLuj-revTLv2K5_L_mPRdrM/edit#slide=id.g4dfcad5312_3_15-->
+link til slide https://docs.google.com/presentation/d/1eclKRT1JpeKS042lHRUy6UqWXfY_CwAIIi9Tu-v32uE/edit#slide=id.g4e07b19af3_0_100-->

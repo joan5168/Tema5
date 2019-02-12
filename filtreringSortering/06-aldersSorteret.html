@@ -4,14 +4,22 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Overskrift</title>
+    <title>Alder sorteret</title>
+</head>
+
 <!--
 Opgave
 
-Få overskrifter på filtreringerne:-->
+Lav en ændring i scriptet, så personerne i stedet for github-konto vises med alder.
+
+Lav om på scriptet, så personerne vises i stigende alder
+
+Prøv at få scriptet til at sortere omvendt  - i faldende alder
+-->
 
 
-</head>
+
+
 <style>
     #liste {
         display: grid;
@@ -61,7 +69,7 @@ Få overskrifter på filtreringerne:-->
 <body>
     <h1></h1>
     <div class="menu">
-        <button class="filter valgt" data-hold="alle">Alle</button>
+        <button class="filter" data-hold="alle">Alle</button>
         <button class="filter" data-hold="a">Hold A</button>
         <button class="filter" data-hold="b">Hold B</button>
     </div>
@@ -75,10 +83,15 @@ Få overskrifter på filtreringerne:-->
 
         function start() {
             let dest = document.querySelector("#liste");
-
+            let temp = document.querySelector("template");
             async function getJson() {
                 let jsonData = await fetch("https://mandalskeawebspace.dk/claude_php/clean_up_spreadsheet.php?id=1OLlD_GRoz71piHvnW306omRAyHS7vtLOILQt-K0YF_c");
                 personListe = await jsonData.json();
+
+                //sortere alder
+                personListe.sort((a, b) => {
+                    return a.alder - b.alder
+                })
                 visPerson();
             }
 
@@ -109,6 +122,10 @@ Få overskrifter på filtreringerne:-->
             function filtrering() {
                 filter = this.getAttribute("data-hold");
                 document.querySelector("h1").textContent = this.textContent;
+                document.querySelectorAll(".filter").forEach(elm => {
+                    elm.classList.remove("valgt");
+                })
+                this.classList.add("valgt");
                 visPerson();
             }
 
