@@ -69,18 +69,19 @@
             }
 
             function åben() {
-                //               document.querySelector("#indhold").innerHTML = `
-                // <div class="person">
-                // <h2>${person.navn}</h2>
-                // <img src="${person.billede}" alt="${person.navn}">
-                // <p>Github: ${person.github}</p>
-                // <p>alder: ${person.alder}</p>
-                // <p>køn: ${person.køn}</p>
-                // <p>email: ${person.email}</p>
-                // <p>hold: ${person.hold}</p>
-                // </div>
-                // `;
+                document.querySelector("#indhold").innerHTML = `
+                <div class="person">
+                        <h2>${person.navn}</h2>
+                        <img src="${person.billede}" alt="${person.navn}">
+                        <p>Github: ${person.github}</p>
+                        <p>alder: ${person.alder}</p>
+                        <p>køn: ${person.køn}</p>
+                        <p>email: ${person.email}</p>
+                        <p>hold: ${person.hold}</p>
+                </div>
+`;
                 // document.querySelector("#singleview").style.display = "block";
+
             }
             getJson();
         }
