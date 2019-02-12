@@ -9,7 +9,10 @@
 <!--
 Opgave
 
-Fjerne også i scriptet alt, hvad der har med popup’en at gøre: variablen popup, eventlisteners på personer og på lukke-knapper.
+Sæt en luk-knap ind på popup-vinduet og style, så den ser ok ud. (husk også cursor: pointer)
+
+Lav en eventListener på knappen, som sørger for at lukke popupvinduet igen.
+
 -->
 
 <style>
@@ -56,48 +59,11 @@ Fjerne også i scriptet alt, hvad der har med popup’en at gøre: variablen pop
     h1 {
         text-align: center;
     }
-
-    /*
-    #popup {
-        width: 100vw;
-        height: 100vh;
-        position: fixed;
-        background-color: red;
-        display: none;
-    }
-*/
-
-    #indhold {
-        box-sizing: border-box;
-        background-color: lightgray;
-        width: 90vw;
-        height: 90vh;
-        margin: auto;
-    }
-
-    #luk {
-        box-sizing: border-box;
-        text-align: right;
-        padding-right: 1em;
-    }
-
-    #luk button {
-        font-size: 2em;
-    }
-
 </style>
 
 
-
 <body>
-    <!--
-<section>
-    <div id="popup">
-        <div id="luk"><button>X</button></div>
-        <div id="indhold"></div>
-    </div>
-</section>
--->
+
 
     <section>
         <div id="liste"></div>
@@ -142,9 +108,9 @@ Fjerne også i scriptet alt, hvad der har med popup’en at gøre: variablen pop
             function visPerson() {
                 dest.innerHTML = "";
                 personListe.forEach(person => {
-                    if (filter == "alle" || filter == person.hold) {
+                            if (filter == "alle" || filter == person.hold) {
 
-                        let template = `
+                                let template = `
                                     <div class="person">
                                         <h2>${person.navn}</h2>
                                         <img src="${person.billede}" alt="${person.navn}">
@@ -155,60 +121,31 @@ Fjerne også i scriptet alt, hvad der har med popup’en at gøre: variablen pop
                                         <p>hold: ${person.hold}</p>
                                         </div>
                                     `;
-                        dest.insertAdjacentHTML("beforeend", template);
-                        dest.lastElementChild.addEventListener("click", () => {
-                            location.href = "06-single.html?github=" + person.github;
-                        });
+                                dest.insertAdjacentHTML("beforeend", template);
+                                dest.lastElementChild.addEventListener("click", () => {
+                                    location.href = "06-single.html?github=" + person.github;
 
 
-                        //popup
-                        //                        dest.lastElementChild.addEventListener("click", åben);
+                                });
+                            } //function visPerson er slut
 
-                        function åben() {
-                            document.querySelector("#indhold").innerHTML = `
-                                    <div class="person">
-                                        <h2>${person.navn}</h2>
-                                        <img src="${person.billede}" alt="${person.navn}">
-                                        <p>Github: ${person.github}</p>
-                                        <p>alder: ${person.alder}</p>
-                                        <p>køn: ${person.køn}</p>
-                                        <p>email: ${person.email}</p>
-                                        <p>hold: ${person.hold}</p>
-                                        </div>
-                            `;
-                            //                            document.querySelector("#popup").style.display = "block";
+                            document.querySelectorAll(".filter").forEach(elm => {
+                                elm.addEventListener("click", filtrering);
+
+                            })
+
+                            function filtrering() {
+                                filter = this.getAttribute("data-hold");
+                                document.querySelector("h1").textContent = this.textContent;
+                                document.querySelectorAll(".filter").forEach(elm => {
+                                    elm.classList.remove("valgt");
+                                })
+                                this.classList.add("valgt");
+                                visPerson();
+                            }
+
+                            getJson();
                         }
-
-                    }
-                });
-            } //function visPerson er slut
-            //            document.querySelector("#luk button").addEventListener("click", () => {
-            //                document.querySelector("#popup").style.display = "none";
-            //            })
-            //            document.querySelectorAll(".filter").forEach(elm => {
-            //                elm.addEventListener("click", filtrering);
-            //
-            //            })
-
-
-
-
-
-
-
-            function filtrering() {
-                filter = this.getAttribute("data-hold");
-                document.querySelector("h1").textContent = this.textContent;
-                document.querySelectorAll(".filter").forEach(elm => {
-                    elm.classList.remove("valgt");
-                })
-                this.classList.add("valgt");
-                visPerson();
-            }
-
-            getJson();
-        }
-
     </script>
 </body>
 

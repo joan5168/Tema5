@@ -62,6 +62,7 @@
     #luk button {
         font-size: 2em;
     }
+
 </style>
 
 
@@ -80,6 +81,9 @@
     </header>
 
     <script>
+        let urlParams = new URLSearchParams(window.location.search);
+        let github = urlParams.get("github");
+        let person;
         let personListe = [];
         let filter = "alle";
         document.addEventListener("DOMContentLoaded", start);
@@ -88,32 +92,33 @@
             let dest = document.querySelector("#liste");
             async function getJson() {
                 let jsonData = await fetch("https://mandalskeawebspace.dk/claude_php/clean_up_spreadsheet.php?id=1OLlD_GRoz71piHvnW306omRAyHS7vtLOILQt-K0YF_c");
-                personListe = await jsonData.json();
-
-                //sortere efter navn
-                personListe.sort((a, b) => {
-                    return a.navn.localeCompare(b.navn);
+                personListe = forEach(obj => {
+                    if (obj.github == github {
+                            person = obj;
+                        })
                 })
-
                 åben();
             }
 
             function åben() {
-                //               document.querySelector("#indhold").innerHTML = `
-                // <div class="person">
-                // <h2>${person.navn}</h2>
-                // <img src="${person.billede}" alt="${person.navn}">
-                // <p>Github: ${person.github}</p>
-                // <p>alder: ${person.alder}</p>
-                // <p>køn: ${person.køn}</p>
-                // <p>email: ${person.email}</p>
-                // <p>hold: ${person.hold}</p>
-                // </div>
-                // `;
-                // document.querySelector("#singleview").style.display = "block";
+                document.querySelector("#indhold").innerHTML = `
+                    <div class="person">
+                        <h2>${person.navn}</h2>
+                        <img src="${person.billede}" alt="${person.navn}">
+                        <p>Github: ${person.github}</p>
+                        <p>alder: ${person.alder}</p>
+                        <p>køn: ${person.køn}</p>
+                        <p>email: ${person.email}</p>
+                        <p>hold: ${person.hold}</p>
+                    </div>
+                `;
             }
+            document.querySelector("#tilbage button").addEventListener("click", () => {
+                location.href = "05-kald.html"
+            })
             getJson();
         }
+
     </script>
 </body>
 
